@@ -1,0 +1,19 @@
+<el-dialog
+        :title = "title"
+        :visible.sync="show"
+        size="tiny"
+        :before-close="cancelForm"
+       >
+    <formv
+            :save="submit"
+            :form="form"
+            btn-text="Save"
+            :hasLabel="true"
+            labelWidth="80px"
+            :name="name"
+    >
+    </formv>
+<span slot="footer" class="dialog-footer">
+
+</span>
+</el-dialog>

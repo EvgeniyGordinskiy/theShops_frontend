@@ -1,0 +1,70 @@
+<div class="main-body">
+  <el-row :gutter="10">
+    <el-col  :xs="24" :sm="24" :md="8" :lg="8">
+      <h1 class="pageTitle"><i class="fa fa-users" aria-hidden="true"></i>Shops</h1>
+    </el-col>
+    <el-col  :xs="24" :sm="24" :md="16" :lg="16">
+      <div class="listOptions pull-right">
+        <!--<el-button  @click.prevent="openFormCreate" size="small"><span class="fa fa-sign-out"></span>Create Shops</el-button>-->
+      </div>
+      <div class="listOptions pull-right">
+        <el-form :model="formFilter" label-width="120px" :inline="true">
+          <el-form-item>
+            <el-col :span="7">
+              <el-date-picker type="date" placeholder="Pick a date" v-model="formFilter.date" style="width: 100%;"></el-date-picker>
+            </el-col>
+            <el-col class="line" :span="2">-</el-col>
+            <el-col :span="7">
+              <el-time-picker type="fixed-time" placeholder="Pick a time" v-model="formFilter.time" style="width: 100%;"></el-time-picker>
+            </el-col>
+            <el-col :span="6">
+                  <el-button type="round" @click="search()">Search</el-button>
+            </el-col>
+          </el-form-item>
+        </el-form>
+      </div>
+    </el-col>
+  </el-row>
+  <div v-if="loading"><br><br></div>
+ <el-row class="flex stretch wrap" v-loading="loading">
+    <cardv
+            v-for="shop in shops"
+            :key="shop.shop_id"
+    >
+      <div   @click="openFormEdit(shop)">
+        <br><br>
+        <h2 class="cardTitle"> {{ shop.name }} </h2>
+        <hr>
+       <span class="cardContent">{{ shop.short_description }}</span>
+        <hr>
+        <div class="dayWeek"><label class="cardLabel">Sunday: </label><span class="cardContent time">{{ shop.sunday_start }} - {{shop.sunday_end}}</span></div><br>
+        <div class="dayWeek"><label class="cardLabel">Monday: </label><span class="cardContent time">{{ shop.monday_start }} - {{shop.monday_end}}</span></div><br>
+        <div class="dayWeek"><label class="cardLabel">Tuesday: </label><span class="cardContent time">{{ shop.tuesday_start }} - {{shop.tuesday_end}}</span></div><br>
+        <div class="dayWeek"><label class="cardLabel">Wednesday: </label><span class="cardContent time">{{ shop.wednesday_start }} - {{shop.wednesday_end}}</span></div><br>
+        <div class="dayWeek"><label class="cardLabel">Thursday: </label><span class="cardContent time">{{ shop.thursday_start }} - {{shop.thursday_end}}</span></div><br>
+        <div class="dayWeek"><label class="cardLabel">Friday: </label><span class="cardContent time">{{ shop.friday_start }} - {{shop.friday_end}}</span></div><br>
+        <div class="dayWeek"><label class="cardLabel">Saturday: </label><span class="cardContent time">{{ shop.saturday_start }} - {{shop.saturday_end}}</span></div><br>
+      </div>
+    </cardv>
+ </el-row>
+    <modalFormv
+            :show="showModal"
+            :form.sync="form"
+            :cancel-form="cancelForm"
+            :submit="update"
+            :title="titleForm"
+            :name="formName"
+    >
+    </modalFormv>
+    <el-dialog
+            :visible.sync="dialogFormVisible"
+            size="tiny"
+    >
+      Are you sure to delete the shop?
+      <span slot="footer" class="dialog-footer">
+    <el-button @click="dialogFormVisible = false">Cancel</el-button>
+    <el-button type="primary" @click="destroy">Confirm</el-button>
+  </span>
+    </el-dialog>
+  </div>
+</div>

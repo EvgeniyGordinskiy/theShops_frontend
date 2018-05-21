@@ -1,0 +1,154 @@
+/* ============
+ * Main Stylesheet
+ * ============
+ *
+ * Used for the global application styling.
+ *
+ * The stylus CSS-preprocessor is used for this boilerplate.
+ * If you don't want to use Stylus, that's fine!
+ * Replace the stylus directory with the CSS preprocessor you want.
+ * Require the stylesheet in the bootstrap.js file & install the webpack loader.
+ *
+ * It's that easy...
+ *
+ * http://stylus-lang.com/
+ */
+
+@require '~element-ui/lib/theme-default/index.css'
+
+@import './base'
+@import './helpers'
+
+.login-wrapper{
+  background:url('./../images/pattern1.jpg') no-repeat;
+  background-size:cover;
+  height:100%;
+  min-height:100vh;
+  padding-bottom:20px;
+}
+
+.home-wrapper{
+  background:url('./../images/home.jpg') no-repeat;
+  background-size:cover;
+  height:100%;
+  min-height:100vh;
+  padding-bottom:20px;
+}
+
+.login
+  display: block
+  text-align: center
+
+a.buttons_login button{
+  font-size: 1.5rem;
+  font-weight: 200;
+  background:#86c543;
+  color:#FFF;
+  border:0px;
+  font-family: 'Roboto', sans-serif;
+  padding:15px 40px;
+
+  display:inline-block;
+
+}
+a.buttons_login:hover button{
+  background:#2a2a2a;
+  color:#FFF;
+}
+
+.loginBox,.registerBox{
+  background:#FFF;
+  border-radius:5px;
+  padding:30px;
+  input[type="text"],
+  input[type="email"],
+  input[type="password"]{
+    height:50px;
+    border:1px solid #ccc;
+    display:block;
+    width:100%;
+    &:hover{
+      border-color:#86c543;
+    }
+  }
+  input[type="submit"]{
+    background:#86c543;
+    color:#FFF;
+    height:50px;
+    cursor:pointer;
+    font-size:16px;
+    margin:10px auto;
+    text-align:center;
+    float:center;
+    &:hover{
+      background:#2a2a2a;
+    }
+  }
+  h3{
+    font-family: 'Roboto', sans-serif;
+    font-weight:normal;
+    font-weight:100;
+    font-size: 1.5rem;
+  }
+}
+.forgot-password{
+  font-size:12px;
+  text-align:right;
+  display:block;
+  color:#a2a2a2;
+  a{
+    color:#a2a2a2;
+    text-decoration:none;
+    &:hover{
+      color:#2a2a2a;
+    }
+  }
+}
+
+
+
+  .user-details .userType{
+  	float:left;
+  	margin-top:10px;
+  }
+
+.listsClients{
+	padding-left: 6px;
+	padding-right: 6px;
+	margin-bottom: 6.8px;
+}
+
+.listsClients .el-card{
+	height: 140px;
+	width: 100%;
+	-webkit-transition-property: all; /* Safari */
+	-webkit-transition-duration: transition-time; /* Safari */
+	transition-property: all;
+	transition-duration: transition-time;
+}
+
+.top-menu button{
+  margin-right: 50px;
+}
+
+.dayWeek{
+  display:flex;
+  justify-content: space-between;
+}
+.time{
+  font-size: 1em !important
+}
+.dayTime{
+  width: 50%;
+  display: inline-block;
+  margin-bottom: 27px;
+  .el-input{
+    width 120px !important
+    position relative;
+    right:25px;
+  }
+  .el-form-item__error{
+    width:150px;
+    left:-35px;
+  }
+}
