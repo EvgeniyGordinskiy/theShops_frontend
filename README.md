@@ -1,5 +1,10 @@
 # the shops
 
+
+node -v v8.9.4
+npm -v  5.3.0
+
+
 > A Vue.js project
 
 
